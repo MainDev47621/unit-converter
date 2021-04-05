@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./main.css" type="text/css">
-        <script defer src="./script.ts"></script>
+        <link rel="stylesheet" href="./styles.css" type="text/css">
+        <script src="./script.js"></script>
         <title>Unit Converter</title>
     </head>
 
@@ -14,30 +14,26 @@
         <form class="main-form" action="#">
             <div class="category-field">
                 <label for="category">Category: </label>
-                <select name="category" id="category">
+                <select id="category" name="name">
                     <option value="length">Length</option>
-                    <option value="temp">Temperature</option>
+                    <option value="temperature">Temperature</option>
                 </select>
             </div>
-            <div class="input-fields"></div>
+            <div class="input-fields">
                 <label for="input-val">Input</label>
                 <input type="number" id="input-val" name="input-val">
 
                 <label for="input-unit">Input Unit</label>
-                <select name="input-unit" id="input-unit"></select>
+                <select id="input-unit" name="input-unit"></select>
             </div>
             <div class="output-fields">
                 <label for="output-val">Output</label>
-                <input type="number" id="output-val" name="output-val" readonly>
+                <input type="number" id="output-val" name="output-val">
 
                 <label for="output-unit">Output Unit</label>
-                <select name="output-unit" id="output-unit">
-                    <option value="C">Celcius</option>
-                    <option value="F">Fahrenheit</option>
-                    <option value="K">Kelvin</option>
-                </select>
+                <select id="output-unit" name="output-unit"></select>
             </div>
-            
+
             <input type="submit" id="submit-btn">
         </form>
     </body>
