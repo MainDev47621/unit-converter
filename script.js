@@ -15,12 +15,17 @@ const setUpUnits = (units) => {
 
 const setCategory = () => {
     const categoryValue = category.value;
-    switch(category) {
+    switch(categoryValue) {
         case 'length':
+            setUpUnits({'Kilometer(s)' : 'kilometer', 'Meter(s)' : 'unitmeter', 'Centimeter(s)' : 'centimeter', 'Millimeter(s)' : 'millimeter'})
             break;
         case 'temp':
+            setUpUnits({'Celcius' : 'C', 'Fahrenheit' : 'F', 'Kelvin' : 'K'});
             break;
     }
 }
 
 category.addEventListener('change', setCategory);
+
+// Set category units for length (default category) upon loading the page
+setCategory();
