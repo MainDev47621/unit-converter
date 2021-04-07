@@ -17,7 +17,7 @@ const setCategory = () => {
     const categoryValue = category.value;
     switch(categoryValue) {
         case 'length':
-            setUpUnits({'Kilometer(s)' : 'kilometer', 'Meter(s)' : 'unitmeter', 'Centimeter(s)' : 'centimeter', 'Millimeter(s)' : 'millimeter'})
+            setUpUnits({'Kilometer' : 'kilometer', 'Meter' : 'unitmeter', 'Centimeter' : 'centimeter', 'Millimeter' : 'millimeter', 'Inch' : 'inch', 'Foot' : 'foot', 'Yard' : 'yard', 'Mile' : 'mile', 'Light Year' : 'lightYear'})
             break;
         case 'temp':
             setUpUnits({'Celcius' : 'C', 'Fahrenheit' : 'F', 'Kelvin' : 'K'});
