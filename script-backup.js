@@ -1,3 +1,5 @@
+/*
+
 const inputValue = document.getElementById('input-val');
 const outputValue = document.getElementById('output-val');
 const submitBtn = document.getElementById('submit-btn');
@@ -162,3 +164,5 @@ const convertTemp = (temp, oldUnit, newUnit) => {
 }
 
 submitBtn.addEventListener('click', convertUnit)
+
+*/

@@ -7,9 +7,14 @@ const outputUnit = document.getElementById('output-unit');
 const category = document.getElementById('category');
 
 
+
 //Set up correct input and output unit option based on category selected
 
-const setUpUnits = (units) => {
+interface UnitsSetup {
+    [unit: string]: string;
+}
+
+const setUpUnits = (units: UnitsSetup) => {
     inputUnit.innerHTML = '';
     outputUnit.innerHTML = '';
     [inputUnit, outputUnit].forEach(field => {
@@ -57,6 +62,11 @@ const convertUnit = (event) => {
 }
 
 
+// Type aliases
+
+type ConversionFunction = (arg1: number, arg2: string, arg3: string) => number;
+
+
 //Length Conversion
 
 const metricPrefixes = {
@@ -67,10 +77,10 @@ const metricPrefixes = {
 }
 
 
-//
+// Two-dimensional array of length conversion coefficients
 // Rows (ascending order): inch, foot, yard, mile, light year, meter
 // Columns: same as rows
-const lengthConversionMatrix = [
+const lengthConversionMatrix: number[][] = [
     [1, 1/12, 1/36, 1/190080, 2.68478e-18, 0.0254],
     [12, 1, 1/3, 1/5280, 3.22174e-17, 0.3048],
     [36, 3, 1, 1/1760, 9.66522e-17, 0.9144],
@@ -89,7 +99,7 @@ const lengthMatrixIndex = {
 }
 
 // Helper function for conversions in which only one or neither unit is metric
-const convertLengthHelper = (len: number, oldUnit: string, newUnit: string): number => {
+const convertLengthHelper: ConversionFunction = (len: number, oldUnit: string, newUnit: string): number => {
     let newLen: number = len;
     if (oldUnit.includes('meter') && newUnit.includes('meter')) {
         return len * (metricPrefixes[oldUnit.slice(0, -5)] / metricPrefixes[newUnit.slice(0, -5)]);
@@ -104,7 +114,7 @@ const convertLengthHelper = (len: number, oldUnit: string, newUnit: string): num
     }
 }
 
-const convertLength = (len: number, oldUnit: string, newUnit: string): number => {
+const convertLength: ConversionFunction = (len: number, oldUnit: string, newUnit: string): number => {
     if (oldUnit === newUnit) {
         return len;
     } else {
@@ -115,27 +125,19 @@ const convertLength = (len: number, oldUnit: string, newUnit: string): number =>
 
 //Area Conversion
 
-const convertArea = (area: number, oldUnit: number, newUnit: number) => {
-    if (oldUnit === newUnit) {
-        return area;
-    } else {
-        // handle conversion
-    }
-}
-
-
-
-//Volume Conversion
-
-
-
-//Time Conversion
+// const convertArea: ConversionFunction = (area: number, oldUnit: string, newUnit: string): number => {
+//     if (oldUnit === newUnit) {
+//         return area;
+//     } else {
+//         // handle conversion
+//     }
+// }
 
 
 
 //Temperature Conversion
 
-const convertTemp = (temp: number, oldUnit: string, newUnit: string): number => {
+const convertTemp: ConversionFunction = (temp: number, oldUnit: string, newUnit: string): number => {
     if (oldUnit === newUnit) {
         return temp;
     }
